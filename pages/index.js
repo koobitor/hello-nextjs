@@ -15,14 +15,14 @@ class Index extends React.Component {
 
   changeMsg = (e) => {
     this.setState({
-      msg: e.target.value
+      title: e.target.value
     })
   }
 
   render() {
     return (
       <div>
-        <Header title={this.state.title} />
+        <Header {...this.state} />
         <h1 style={{ background: 'red' }}>
           {this.state.msg}
         </h1>
