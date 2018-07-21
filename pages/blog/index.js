@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 
 const BlogLink = (props) => (
   <li>
-    <Link href={`/blog?title=${props.title}`}>
+    <Link as={`/b/${props.id}`} href={`/blog?title=${props.title}`}>
       <a>{props.title}</a>
     </Link>
   </li>
@@ -17,10 +17,11 @@ class Blog extends React.Component {
         <Header title="blog page" />
         <h1>Blog</h1>
         <ul>
-          <BlogLink title="Hello KMUTT" />
-          <BlogLink title="Test Next.js" />
-          <BlogLink title="Demo React.js" />
+          <BlogLink id="hello-kmutt" title="Hello KMUTT" />
+          <BlogLink id="text-nextjs" title="Test Next.js" />
+          <BlogLink id="demo-reactjs" title="Demo React.js" />
         </ul>
+        <h2>{this.props.url.query.title}</h2>
       </div>
     )
   }
