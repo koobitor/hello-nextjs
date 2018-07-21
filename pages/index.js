@@ -1,10 +1,24 @@
 import Header from '../components/Header'
-
+import Hello from './hello'
+import Contact from '../components/Contact'
 class Index extends React.Component {
 
   state = {
     title: 'index page',
     msg: ''
+  }
+
+  constructor(props) {
+    super(props)
+    console.log('constructor')
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount')
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
   }
 
   changeTitle = () => {
@@ -20,14 +34,21 @@ class Index extends React.Component {
   }
 
   render() {
+    const contact = [
+      {
+        name: 'Sakol Assawasagool',
+        tel: '02-777-777'
+      },
+      {
+        name: 'Koobitor',
+        tel: '081-234-5678'
+      }
+    ]
     return (
       <div>
-        <Header {...this.state} />
-        <h1 style={{ background: 'red' }}>
-          {this.state.msg}
-        </h1>
-        <input onChange={(e) => this.changeMsg(e)} />
-        <div onClick={this.changeTitle}>Change Title</div>
+        {contact.map((item) => (
+          <Contact {...item} />
+        ))}
       </div>
     )
   }
